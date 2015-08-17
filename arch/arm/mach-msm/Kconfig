@@ -1657,6 +1657,13 @@ config MSM_RPCSERVER_WATCHDOG
 	help
 	  The dog_keepalive server handles watchdog events.
 
+config FORCE_FAST_CHARGE
+	bool "Force AC charge mode at will"
+	default y
+	help
+	  A simple sysfs interface to force adapters that
+	  are detected as USB to charge as AC.
+
 config MSM_RPC_WATCHDOG
 	depends on MSM_ONCRPCROUTER
 	default n
@@ -2303,6 +2310,14 @@ config MSM_PM2
 config MSM_PM8X60
 	depends on PM
 	bool
+
+config MSM_EVENT_TIMER
+	bool "Event timer"
+	help
+		This option enables a modules that manages a list of event timers that
+		need to be monitored by the PM. The enables the PM code to monitor
+		events that require the core to be awake and ready to handle the
+		event.
 
 config MSM_NOPM
 	default y if !PM
